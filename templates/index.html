@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars Facts</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="jumbotron" style="background-color: #82828242">
+        <h1 class='text-center' style="color: #a73b3b">Mission to Mars</h1>
+        <p class='text-center'><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        
+        <h2 style="color: #a73b3b"><strong>Latest Mars News</strong></h2>
+        <h4><strong>{{marsnews.news_title}}</strong></h4>
+        <p style="font-size: 12pt">{{marsnews.news_p}}</p>
+        <br>
+        <div class='row'>
+            <div class="col-lg-8">
+                <h2 style="color: #a73b3b" ><strong>Featured Mars Image</strong></h2>  
+                <img src= {{ marsnews.featured_image_url }} alt="featured_image_url"/>     
+            </div>
+            <div class="col-lg-4 text-left">
+                <div class="panel panel-default" style="background-color: #82828242" >
+                    <div class="panel-heading h4" style="color: #a73b3b" ><strong>Current Weather on Mars</strong></div>
+                    <div class="panel-body">
+                        {{ marsnews.mars_weather }}
+                    </div>
+                </div>
+                <br>
+                <h2 style="color: #a73b3b" >Mars Facts</h2>
+                    {{marsnews.table|safe}}
+                
+            </div>
+        </div>       
+        <br>
+        <h2 class='text-center' style="color: #a73b3b" ><strong> Mars Hemispheres</strong></h2>
+        <hr>
+        <hr>
+        <style>
+            img {
+            width: 100%;
+            height: auto;
+            }
+            
+            </style>
+        <div class="row">
+            <div class=" col-lg-6 col-md-6 col-sm-12">
+                <div class="card bg-light text-dark">
+                        <div class="card-body text-center" style="height:auto; width:auto; padding: 5px 5px 5px 5px">
+                        <img src= {{ marsnews.images[0].img_url }} alt="hemisphere_image_urls" class='borderbox' style='padding-bottom: 15px' />
+                        <h4 class='card-title text-center' style="color: #a73b3b; height: 50px"><strong>{{ marsnews.images[0].title }}</strong></h4>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-6 col-md-6 col-sm-12">
+                <div class="card card text-center"> 
+                    <div class="card-body text-center" style="height:auto; width:auto; padding: 5px 5px 5px 5px">
+                        <img src= {{ marsnews.images[0].img_url }} alt="hemisphere_image_urls" class='borderbox' style='padding-bottom: 15px' />    
+                        <h4 class='card-title text-center' style="color: #a73b3b; height: 50px"><strong>{{ marsnews.images[1].title }}</strong></h4>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-6 col-md-6 col-sm-12">
+                <div class="card"> 
+                    <div class="card-body text-center" style="height:auto; width:auto; padding: 5px 5px 5px 5px">
+                        <img src= {{ marsnews.images[0].img_url }} alt="hemisphere_image_urls" class='borderbox' style='padding-bottom: 15px' />
+                        <h4 class='card-title text-center' style="color: #a73b3b; height: 50px"><strong>{{ marsnews.images[2].title }}</strong></h4>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-6 col-md-6 col-sm-12">
+                <div class="card"> 
+                    <div class="card-body text-center" style="height:auto; width:auto; padding: 5px 5px 5px 5px">
+                        <img src= {{ marsnews.images[0].img_url }} alt="hemisphere_image_urls" class='borderbox' style='padding-bottom: 15px' />
+                        <h4 class='card-title text-center' style="color: #a73b3b; height: 50px"><strong>{{ marsnews.images[3].title }}</strong></h4>
+                    </div>
+                </div>
+            </div>    
+                
+        </div>     
+    </div>
+</body>
+</html>
